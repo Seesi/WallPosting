@@ -9,22 +9,21 @@
 
 namespace WallPostByTechBrij.Models
 {
-    using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class WallEntities : DbContext
     {
         public WallEntities()
             : base("name=WallEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public DbSet<PostComment> PostComments { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }

@@ -23,10 +23,13 @@ function Post(data) {
     self.PostComments = ko.observableArray();
 
     self.newCommentMessage = ko.observable();
-    self.addComment = function () {
+    debugger
+    self.addComment = function ()
+    {
         var comment = new Comment();
         comment.PostId = self.PostId;
         comment.Message(self.newCommentMessage());
+        
         return $.ajax({
             url: commentApiUrl,
             dataType: "json",
@@ -40,7 +43,7 @@ function Post(data) {
            self.newCommentMessage('');
        })
        .fail(function () {
-           error('unable to add post');
+           console.log('unable to add post');
        });
 
 
@@ -105,7 +108,7 @@ function viewModel() {
                 self.posts(mappedPosts);
             })
             .fail(function () {
-                error('unable to load posts');
+                console.log('unable to load posts');
             });
     }
 
@@ -125,7 +128,7 @@ function viewModel() {
            self.newMessage('');
          })
        .fail(function () {
-                error('unable to add post');
+                console.log('unable to add post');
         });
     }
     self.loadPosts();
